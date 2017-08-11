@@ -17,13 +17,23 @@ import android.view.MenuItem;
  * Created by Hang on 8/11/2017.
  */
 
-public class GuidesActivity extends AppCompatActivity{
+public class GuidesActivity extends ManagerActivity{
 
         @Override
         protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guides);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.guides:
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
+}
 
 
