@@ -3,6 +3,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/profile"
+            android:icon="@drawable/profile"
+            android:title="Profile" />
+        <item
             android:id="@+id/dashboard"
             android:icon="@drawable/dashboard"
             android:title="Dashboard" />
@@ -14,5 +18,10 @@
             android:id="@+id/guides"
             android:icon="@drawable/guides"
             android:title="Guides" />
+        <item
+            android:id="@+id/badges"
+            android:icon="@drawable/badges"
+            android:title="Badges"/>
+
     </group>
 </menu>
