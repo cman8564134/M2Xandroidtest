@@ -33,37 +33,61 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:src="@drawable/hrv" />
-
-     <ImageView
-         android:layout_width="wrap_content"
-         android:layout_height="100dp"
-         android:layout_marginLeft="80dp"
-         android:src="@drawable/heartbeat"/>
-
-        </LinearLayout>
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:layout_marginLeft="150dp"
-                android:src="@drawable/bodytemp"/>
+                android:src="@drawable/hrv" />
+            <TextView
+                android:text="HRC"
+                android:textColor="#4d4d4d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHRC"/>
+        </LinearLayout>
 
-
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:src="@drawable/heartbeat" />
+            <TextView
+                android:text="110 beats/min"
+                android:textColor="#4d4d4d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHeartRate"/>
+        </LinearLayout>
 
 
     </LinearLayout>
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginLeft="150dp"
+            android:src="@drawable/bodytemp"/>
+        <TextView
+            android:text="35°C"
+            android:textColor="#4d4d4d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/tvTemperature"/>
+    </LinearLayout>
 
 </LinearLayout>
