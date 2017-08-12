@@ -30,6 +30,7 @@
         <activity android:name=".GuidesActivity"
             />
         <activity android:name=".GuidesDetailActivity"></activity>
+        <activity android:name=".WelcomeActivty"></activity>
     </application>
 
 </manifest>

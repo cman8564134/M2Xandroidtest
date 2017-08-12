@@ -29,7 +29,7 @@ public class GuidesActivity extends ManagerActivity{
             ((TextView) findViewById(R.id.GoButton1)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),GuidesDetailActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),WelcomeActivty.class);
                     startActivity(intent);
                 }
             });
