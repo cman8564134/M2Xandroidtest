@@ -13,12 +13,43 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends ManagerActivity{
+
+    public static MainActivity instance;
+    private TextView tvHRC, tvHeartRate, tvTemperature;
+
+    public static MainActivity getInstance() {
+//        if (instance == null) {
+//            instance = new MainActivity();
+//        }
+
+        return instance;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        tvHRC = (TextView) findViewById(R.id.tvHRC);
+        tvHeartRate = (TextView) findViewById(R.id.tvHeartRate);
+        tvTemperature = (TextView) findViewById(R.id.tvTemperature);
+
+        instance = this;
+    }
+
+    public TextView getTvHRC() {
+        return tvHRC;
+    }
+
+    public TextView getTvHeartRate() {
+        return tvHeartRate;
+    }
+
+    public TextView getTvTemperature() {
+        return tvTemperature;
     }
 
     @Override
