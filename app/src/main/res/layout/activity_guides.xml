@@ -6,79 +6,56 @@
         <android.support.v7.widget.CardView
 
             android:id="@+id/android_card_view_example"
-
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content">
 
 
-
             <RelativeLayout
-
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-
                 android:background="#fff"
-
                 android:elevation="4dp"
-
                 android:padding="16dp">
-
-
 
                 <ImageView
 
                     android:id="@+id/cardview_image"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_alignParentTop="true"
-
                     android:layout_marginRight="18dp"
-
                     android:src="@drawable/profile" />
-
 
 
                 <TextView
 
                     android:id="@+id/cardview_list_title"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_alignParentTop="true"
-
                     android:layout_toRightOf="@+id/cardview_image"
-
                     android:paddingBottom="5dp"
-
                     android:text="Viral Android"
-
                     android:textSize="24sp" />
-
 
 
                 <TextView
 
                     android:id="@+id/short_description"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_below="@+id/cardview_list_title"
-
                     android:layout_toRightOf="@+id/cardview_image"
-
                     android:text="Free android tutorials and examples for beginners and expert."
-
                     android:textColor="#8b8b8b" />
 
+                <TextView
+                    android:id="@+id/GoButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/short_description"
+                    android:layout_alignRight="@id/short_description"
+                    android:text="Go" />
 
 
             </RelativeLayout>
@@ -92,11 +69,8 @@
         <android.support.v7.widget.CardView
 
             android:id="@+id/android_card_view_example1"
-
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
-
             android:layout_marginTop="16dp">
 
 
@@ -104,13 +78,9 @@
             <RelativeLayout
 
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-
                 android:background="#fff"
-
                 android:elevation="4dp"
-
                 android:padding="16dp">
 
 
@@ -118,13 +88,9 @@
                 <ImageView
 
                     android:id="@+id/cardview_image1"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_alignParentTop="true"
-
                     android:layout_marginRight="18dp"
 
                     android:src="@drawable/profile" />
@@ -134,19 +100,12 @@
                 <TextView
 
                     android:id="@+id/cardview_list_title1"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_alignParentTop="true"
-
                     android:layout_toRightOf="@+id/cardview_image1"
-
                     android:paddingBottom="5dp"
-
                     android:text="Viral Android"
-
                     android:textSize="24sp" />
 
 
@@ -154,18 +113,21 @@
                 <TextView
 
                     android:id="@+id/short_description1"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_below="@+id/cardview_list_title1"
-
                     android:layout_toRightOf="@+id/cardview_image1"
-
                     android:text="Free android tutorials and examples for beginners and expert."
 
                     android:textColor="#8b8b8b" />
+
+                <TextView
+                    android:id="@+id/GoButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/short_description1"
+                    android:layout_alignParentEnd="true"
+                    android:text="Go" />
 
 
 
@@ -180,11 +142,8 @@
         <android.support.v7.widget.CardView
 
             android:id="@+id/android_card_view_example2"
-
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
-
             android:layout_marginTop="16dp">
 
 
@@ -192,13 +151,9 @@
             <RelativeLayout
 
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-
                 android:background="#fff"
-
                 android:elevation="4dp"
-
                 android:padding="16dp">
 
 
@@ -206,15 +161,10 @@
                 <ImageView
 
                     android:id="@+id/cardview_image2"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_alignParentTop="true"
-
                     android:layout_marginRight="18dp"
-
                     android:src="@drawable/profile" />
 
 
@@ -222,19 +172,13 @@
                 <TextView
 
                     android:id="@+id/cardview_list_title2"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_alignParentTop="true"
-
                     android:layout_toRightOf="@+id/cardview_image2"
-
                     android:paddingBottom="5dp"
 
                     android:text="Viral Android"
-
                     android:textSize="24sp" />
 
 
@@ -242,18 +186,20 @@
                 <TextView
 
                     android:id="@+id/short_description2"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_below="@+id/cardview_list_title2"
-
                     android:layout_toRightOf="@+id/cardview_image2"
-
                     android:text="Free android tutorials and examples for beginners and expert."
-
                     android:textColor="#8b8b8b" />
+
+                <TextView
+                    android:id="@+id/GoButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/short_description2"
+                    android:layout_alignRight="@id/short_description2"
+                    android:text="Go" />
 
 
 
@@ -268,11 +214,8 @@
         <android.support.v7.widget.CardView
 
             android:id="@+id/android_card_view_example3"
-
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
-
             android:layout_marginTop="16dp">
 
 
@@ -280,13 +223,9 @@
             <RelativeLayout
 
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-
                 android:background="#fff"
-
                 android:elevation="4dp"
-
                 android:padding="16dp">
 
 
@@ -294,15 +233,10 @@
                 <ImageView
 
                     android:id="@+id/cardview_image3"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_alignParentTop="true"
-
                     android:layout_marginRight="18dp"
-
                     android:src="@drawable/profile" />
 
 
@@ -310,19 +244,13 @@
                 <TextView
 
                     android:id="@+id/cardview_list_title3"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_alignParentTop="true"
-
                     android:layout_toRightOf="@+id/cardview_image3"
-
                     android:paddingBottom="5dp"
 
                     android:text="Viral Android"
-
                     android:textSize="24sp" />
 
 
@@ -330,18 +258,19 @@
                 <TextView
 
                     android:id="@+id/short_description3"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_below="@+id/cardview_list_title3"
-
                     android:layout_toRightOf="@+id/cardview_image3"
-
                     android:text="Free android tutorials and examples for beginners and expert."
-
                     android:textColor="#8b8b8b" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/short_description3"
+                    android:layout_alignRight="@id/short_description3"
+                    android:text="Go" />
 
 
 

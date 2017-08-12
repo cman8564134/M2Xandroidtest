@@ -1,5 +1,6 @@
 package mydd2017.com.m2xandroidtest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 /**
  * Created by Hang on 8/11/2017.
@@ -23,6 +25,14 @@ public class GuidesActivity extends ManagerActivity{
         protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guides);
+
+            ((TextView) findViewById(R.id.GoButton1)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(),GuidesDetailActivity.class);
+                    startActivity(intent);
+                }
+            });
     }
 
     @Override
@@ -34,6 +44,7 @@ public class GuidesActivity extends ManagerActivity{
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
 
 

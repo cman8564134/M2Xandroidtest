@@ -20,6 +20,7 @@
         <activity android:name=".ManagerActivity"></activity>
         <activity android:name=".GuidesActivity"
             />
+        <activity android:name=".GuidesDetailActivity"></activity>
     </application>
 
 </manifest>
