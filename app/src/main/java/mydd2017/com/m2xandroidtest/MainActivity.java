@@ -1,16 +1,6 @@
 package mydd2017.com.m2xandroidtest;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -18,7 +8,7 @@ import android.widget.TextView;
 public class MainActivity extends ManagerActivity{
 
     public static MainActivity instance;
-    private TextView tvHRC, tvHeartRate, tvTemperature;
+    private TextView tvHRV, tvHeartRate, tvTemperature;
 
     public static MainActivity getInstance() {
 //        if (instance == null) {
@@ -33,15 +23,15 @@ public class MainActivity extends ManagerActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvHRC = (TextView) findViewById(R.id.tvHRC);
+        tvHRV = (TextView) findViewById(R.id.tvHRV);
         tvHeartRate = (TextView) findViewById(R.id.tvHeartRate);
         tvTemperature = (TextView) findViewById(R.id.tvTemperature);
 
         instance = this;
     }
 
-    public TextView getTvHRC() {
-        return tvHRC;
+    public TextView getTvHRV() {
+        return tvHRV;
     }
 
     public TextView getTvHeartRate() {

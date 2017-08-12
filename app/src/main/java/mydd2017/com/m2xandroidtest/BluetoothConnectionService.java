@@ -41,6 +41,9 @@ public class BluetoothConnectionService {
 //            UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
             UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
+    private static final String MASTER_ID = "670e1c1a7d206ea49e2b15c37bbca59b";
+    private static final String DEVICE_ID = "db2b6bec974fca8dabc42fde299e3c53";
+
     private final BluetoothAdapter mBluetoothAdapter;
     Context mContext;
 
@@ -56,7 +59,7 @@ public class BluetoothConnectionService {
 
     public BluetoothConnectionService(Context context) {
         mContext = context;
-        M2XAPI.initialize(mContext, "");
+        M2XAPI.initialize(mContext, MASTER_ID);
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         start();
     }
@@ -287,48 +290,57 @@ public class BluetoothConnectionService {
                         storeBuffer = "";
                     }
 
-                    String temperatureRecord = "{ \"values\": [\n";
-                    String heartRateRecord = "{ \"values\": [\n";
-                    String hazeRecord = "{ \"values\": [\n";
-                    String HRVRecord = "{ \"values\": [\n";
+                    String tempRecord = "{ \"values\": [\n {\"timestamp\":\"2017-08-10T05:01:00.123z\",\"value\": 80}";
+                    String heartRateRecord = "{ \"values\": [\n {\"timestamp\":\"2017-08-10T05:01:00.123z\",\"value\": 80}";
+                    String hazeRecord = "{ \"values\": [\n {\"timestamp\":\"2017-08-10T05:21:00.123z\",\"value\": 80}";
+                    String HRVRecord = "{ \"values\": [\n {\"timestamp\":\"2017-08-10T05:21:00.123z\",\"value\": 80}";
+                    String tempSensorRecord = "{ \"values\": [\n {\"timestamp\":\"2017-08-10T05:01:00.123z\",\"value\": 80}";
 
                     Random random = new Random();
-//                            " {\"timestamp\":\"2015-07-02T05:06:00.123z\",\"value\": 80}";
+                    int temp = 0;
+                    int heartRate = 0;
+                    int haze = 0;
+                    int HRV = 0;
+                    int tempSensor = 0;
 
                     for (int second = 0; second < 60; second ++) {
-                        int temperature = random.nextInt(38 - 33) + 33;
-                        int heartRate = random.nextInt(141 - 105) + 105;
-                        int haze = random.nextInt(201 - 50) + 50;
-                        int HRV = random.nextInt(71 - 55) + 55;
-                        temperatureArray.add(temperature);
+                        temp = random.nextInt(38 - 33) + 33;
+                        heartRate = random.nextInt(141 - 105) + 105;
+                        haze = random.nextInt(201 - 50) + 50;
+                        HRV = random.nextInt(71 - 55) + 55;
+                        tempSensor = random.nextInt(39 - 33) + 33;
+                        temperatureArray.add(temp);
                         heartRateArray.add(heartRate);
 
-                        temperatureRecord += ",\n {\"timestamp\":\"2015-07-02T07:"+String.format("%02d", minute)+
-                                ":"+String.format("%02d", second)+".123z\",\"value\": "+temperature+"}";
+                        tempRecord += ",\n {\"timestamp\":\"2017-08-11T07:"+String.format("%02d", minute)+
+                                ":"+String.format("%02d", second)+".123z\",\"value\": "+temp+"}";
 
-                        heartRateRecord += ",\n {\"timestamp\":\"2015-07-02T07:"+String.format("%02d", minute)+
+                        heartRateRecord += ",\n {\"timestamp\":\"2017-08-11T07:"+String.format("%02d", minute)+
                                 ":"+String.format("%02d", second)+".123z\",\"value\": "+heartRate+"}";
 
-                        hazeRecord += ",\n {\"timestamp\":\"2015-07-02T07:"+String.format("%02d", minute)+
+                        hazeRecord += ",\n {\"timestamp\":\"2017-08-11T07:"+String.format("%02d", minute)+
                                 ":"+String.format("%02d", second)+".123z\",\"value\": "+haze+"}";
 
-                        HRVRecord += ",\n {\"timestamp\":\"2015-07-02T07:"+String.format("%02d", minute)+
+                        HRVRecord += ",\n {\"timestamp\":\"2017-08-11T07:"+String.format("%02d", minute)+
                                 ":"+String.format("%02d", second)+".123z\",\"value\": "+HRV+"}";
 
-                        minute++;
+                        tempSensorRecord += ",\n {\"timestamp\":\"2017-08-11T07:"+String.format("%02d", minute)+
+                                ":"+String.format("%02d", second)+".123z\",\"value\": "+tempSensor+"}";
                     }
+                    minute++;
 //                    for (int hour = 0; hour < 9; hour ++) {
 //                        for (int minute = 0; minute < 60; minute ++) {
 //                            temperatureRecord += ",\n {\"timestamp\":\"2015-07-02T"+String.format("%02d", hour)+ ":"+String.format("%02d", minute)+
 //                                    ":00.123z\",\"value\": "+(new Random().nextInt(38-33)+33)+"}";
 //                        }
 //                    }
-                    temperatureRecord += "] }";
+                    tempRecord += "] }";
                     heartRateRecord += "] }";
                     hazeRecord += "] }";
                     HRVRecord += "] }";
+                    tempSensorRecord += "] }";
 
-                    int temperature = temperatureArray.get(temperatureArray.size() - 1);
+//                    int temperature = temperatureArray.get(temperatureArray.size() - 1);
                     int totalHeartRate = 0;
                     int maxHeartRate = 0;
                     int minHeartRate = 1000;
@@ -342,66 +354,80 @@ public class BluetoothConnectionService {
                     double avgHeartRate = (double) totalHeartRate / heartRateArray.size();
 
                     if (mainActivity != null) {
-                        TextView tvHRC = mainActivity.getTvHRC();
-                        if (tvHRC != null && tvHRC.isShown()) {
+                        TextView tvHRV = mainActivity.getTvHRV();
+                        if (tvHRV != null && tvHRV.isShown()) {
+                            tvHRV.setText("" + HRV + "HRV");
                             mainActivity.getTvHeartRate().setText("Avg. " + avgHeartRate
                                     + "\nMax. " + maxHeartRate
                                     + "\nMin. " + minHeartRate);
-                            mainActivity.getTvTemperature().setText("" + temperature + "°C");
+                            mainActivity.getTvTemperature().setText("" + temp + "°C");
                         }
                     }
 
-                    JSONObject temperatureJason = new JSONObject(temperatureRecord);
+                    JSONObject tempJason = new JSONObject(tempRecord);
                     JSONObject heartRateJason = new JSONObject(heartRateRecord);
                     JSONObject hazeJason = new JSONObject(hazeRecord);
                     JSONObject HRVJason = new JSONObject(HRVRecord);
+                    JSONObject tempSensorJason = new JSONObject(tempSensorRecord);
 
 
-                    Device.postDataStreamValues(mContext, temperatureJason, "67127b3606bd0e6106166831806aa721", "LVStream", new ResponseListener() {
+                    Device.postDataStreamValues(mContext, tempJason, DEVICE_ID, "UserTempData", new ResponseListener() {
                         @Override
                         public void onRequestCompleted(ApiV2Response result, int requestCode) {
-                            Log.d("response","temperatureJason push Completed");
+                            Log.d("response","tempJason push Completed: " + result.get_raw());
                         }
 
                         @Override
                         public void onRequestError(ApiV2Response error, int requestCode) {
-                            Log.d("response","temperatureJason push Error");
+                            Log.d("response","tempJason push Error: " + error.get_raw());
                         }
                     });
 
-                    Device.postDataStreamValues(mContext, heartRateJason, "67127b3606bd0e6106166831806aa721", "LVStream", new ResponseListener() {
+                    Device.postDataStreamValues(mContext, heartRateJason, DEVICE_ID, "userheartdata", new ResponseListener() {
                         @Override
                         public void onRequestCompleted(ApiV2Response result, int requestCode) {
-                            Log.d("response","heartRateJason push Completed");
+                            Log.d("response","heartRateJason push Completed: " + result.get_raw());
                         }
 
                         @Override
                         public void onRequestError(ApiV2Response error, int requestCode) {
-                            Log.d("response","heartRateJason push Error");
+                            Log.d("response","heartRateJason push Error: " + error.get_raw());
                         }
                     });
 
-                    Device.postDataStreamValues(mContext, hazeJason, "67127b3606bd0e6106166831806aa721", "LVStream", new ResponseListener() {
+                    Device.postDataStreamValues(mContext, hazeJason, DEVICE_ID, "APIID", new ResponseListener() {
                         @Override
                         public void onRequestCompleted(ApiV2Response result, int requestCode) {
-                            Log.d("response","hazeJason push Completed");
+                            Log.d("response","hazeJason push Completed: " + result.get_raw());
                         }
 
                         @Override
                         public void onRequestError(ApiV2Response error, int requestCode) {
-                            Log.d("response","hazeJason push Error");
+                            Log.d("response","hazeJason push Error: " + error.get_raw());
                         }
                     });
 
-                    Device.postDataStreamValues(mContext, HRVJason, "67127b3606bd0e6106166831806aa721", "LVStream", new ResponseListener() {
+                    Device.postDataStreamValues(mContext, HRVJason, DEVICE_ID, "VarianceStream", new ResponseListener() {
                         @Override
                         public void onRequestCompleted(ApiV2Response result, int requestCode) {
-                            Log.d("response","HRVJason push Completed");
+                            Log.d("response","HRVJason push Completed: " + result.get_raw());
                         }
 
                         @Override
                         public void onRequestError(ApiV2Response error, int requestCode) {
-                            Log.d("response","HRVJason push Error");
+                            Log.d("response","HRVJason push Error: " + error.get_raw());
+                        }
+                    });
+
+                    Device.postDataStreamValues(mContext, tempSensorJason, DEVICE_ID, "cityTemperatureSensor", new ResponseListener() {
+                        @Override
+                        public void onRequestCompleted(ApiV2Response result, int requestCode) {
+                            Log.d("response","tempSensorJason push Completed: " + result.get_raw());
+                        }
+
+                        @Override
+                        public void onRequestError(ApiV2Response error, int requestCode) {
+                            Log.d("response","tempSensorJason push Error: " + error.get_raw());
                         }
                     });
 
