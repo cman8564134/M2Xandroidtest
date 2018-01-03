@@ -4,3 +4,8 @@ The architecture of the system can be shown below:
 
 
 ![alt tag](https://github.com/cman8564134/M2Xandroidtest/blob/master/MYDD2017.png)
+
+The visualization will look something like this, assuming that red zones will move as the data changes:
+![alt tag](https://github.com/cman8564134/M2Xandroidtest/blob/master/DemoImage.png)
+
+![alt tag](https://github.com/cman8564134/M2Xandroidtest/blob/master/Temperature.png)
